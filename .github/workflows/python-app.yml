@@ -37,6 +37,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run Flask App (for 10 seconds)
       run: |
-        nohup python app.py &
-        sleep 10
-        curl http://127.0.0.1:5000
+        tmux new -d -s flask_session "python app.py"
+        tmux ls
